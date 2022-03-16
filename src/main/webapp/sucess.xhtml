@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Sucesso </title>
+</h:head>
+
+<h:body>
+<h:form> 
+<table> 
+	<tr> 
+		<td>Id_responsavel: </td>
+		<td><h:outputText value="#{tarefasMBean.tarefa.id_responsavel}" /> </td>
+	</tr> 
+	
+	<tr> 
+		<td>Titulo: </td>
+		<td><h:outputText value="#{tarefasMBean.tarefa.titulo}" /> </td>
+	</tr> 
+	<tr> 
+		<td>Descricao: </td> 
+		<td> <h:outputText value="#{tarefasMBean.tarefa.descricao}" /> </td> 
+	</tr> 
+	<tr> 
+		<td>Prioridade: </td>
+		<td><h:outputText value="#{tarefasMBean.tarefa.prioridade}" /> </td>
+	</tr> 
+	<tr> 
+		<td>Deadline: </td> 
+		<td> 
+			<h:outputText value="#{tarefasMBean.tarefa.deadline}"> 
+			<f:convertDateTime pattern="dd/MM/yyyy" /> 
+			</h:outputText> 
+		</td> 
+	</tr> 
+	<tr> 
+		<td>Situacao: </td> 
+		<td> 
+			<h:outputText value="#{tarefasMBean.tarefa.situacaoString}" /> 
+		</td> 
+	</tr>
+	<tr>
+		<td colspan="2" align="center"> 
+			<h:commandLink action="#{tarefasMBean.exibirLista}" value="Voltar para listagem"/> <br/>
+		</td>
+	</tr>
+</table>
+</h:form>
+</h:body> 
+</html>

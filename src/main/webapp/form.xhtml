@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+	
+<h:head> 
+	<title>Formulário</title>
+</h:head>
+
+<h:body>
+<h:messages/>
+<h:form> 
+
+<table> 
+	<tr>
+		<td>responsavel:</td>
+		<td>
+			<h:selectOneMenu value="#{tarefasMBean.tarefa.id_responsavel}">
+				<f:selectItems value="#{tarefasMBean.listaResponsavel}" var="responsavel" itemLabel="#{responsavel.nome}" itemValue="#{responsavel.id}" />
+			</h:selectOneMenu>
+		</td>
+	</tr>
+	<tr>
+		<td>Titulo:</td>
+		<td><h:inputText value="#{tarefasMBean.tarefa.titulo}" size="50" required="true" requiredMessage="Título: Campo obrigatório." /> </td>
+	</tr> 
+	<tr> 
+		<td>Descricao:</td>
+		<td><h:inputTextarea value="#{tarefasMBean.tarefa.descricao}" cols="50" rows="4" required="true" requiredMessage="Descrição: Campo obrigatório." /> </td> 
+	</tr>
+	<tr>
+		<td>Prioridade:</td>
+			<td>
+				<h:selectOneMenu value="#{tarefasMBean.tarefa.prioridade}">
+					<f:selectItem itemValue="Baixa" itemLabel="Baixa" />
+					<f:selectItem itemValue="Média" itemLabel="Média" />
+					<f:selectItem itemValue="Alta" itemLabel="Alta" />
+				</h:selectOneMenu>
+			</td> 
+	</tr>	
+	<tr> 
+		<td>Deadline: </td>
+		<td>
+			<h:inputText value="#{tarefasMBean.tarefa.deadline}" size="5" maxlength="10">	
+			<f:convertDateTime pattern="dd/MM/yyyy" /> 
+			</h:inputText>
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2" align="center"> 
+			<h:commandButton value="Salvar cadastro" action="#{tarefasMBean.cadastrar}" />
+		</td>
+		<td colspan="2" align="center"> 
+			<h:commandButton value="Voltar para listagem" action="#{tarefasMBean.exibirLista}" />
+		</td>
+		
+	</tr>
+</table>
+
+</h:form>
+</h:body>
+</html>
